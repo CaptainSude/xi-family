@@ -35,4 +35,4 @@ jobs:
       - name: Build all proof sources and both formal statements
         run: lake --no-cache build
       - name: Enforce the axiom list for all eleven endpoints
-        run: lake --no-cache env lean XiFamilyAxiomCheck.lea
+                run: lake --no-cache env lean XiFamilyAxiomCheck.lean
