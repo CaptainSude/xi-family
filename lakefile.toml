@@ -1,0 +1,18 @@
+name = "xiFamilyVerification"
+version = "0.1.0"
+defaultTargets = ["XiFamilyVerification"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "de2ef68216c6074f338c8e61890ee0a379ddfb9b"
+
+[[lean_lib]]
+name = "XiFamilyVerification"
+roots = ["XiFamilyChallenge", "XiFamilyDefinition", "XiFamilyStatement", "XiGap", "XiGapSeparation", "XiValuationEscape", "XiLocalDensity", "XiFamilySeries", "XiFamilySupport", "XiFamilyRational", "XiBlockDepth", "XiFamilyNormalityDensity", "XiFamilyScaleDensity", "XiFamilyNormalityFromDepth", "XiFamilyClearing", "XiClearingBuffers", "XiFamilyNormality", "XiPrimitiveParameters", "XiPeriodicWeights", "XiParameterGrouping", "XiGroupedSeries", "XiWeightedBlock", "XiGapWeightedDepth", "XiWeightedDepth", "XiGroupedDepth", "XiDominantBlock", "XiCombinationDepth", "XiSlopeDominance", "XiArithmeticDepth", "XiFiniteCombinationTransfer", "XiArithmeticNormality", "XiFamilySolution", "XiFamilyAxiomCheck"]
+
+[[lean_lib]]
+name = "XiNormality"
+
+[[lean_lib]]
+name = "StonehamNormality"

@@ -1,0 +1,603 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,hmargin=1.02in,vmargin=0.95in]{geometry}
+\usepackage{mathtools,amssymb,amsthm,microtype,xcolor,needspace}
+\definecolor{inkblue}{RGB}{25,66,85}
+\usepackage[colorlinks=true,linkcolor=inkblue,citecolor=inkblue,urlcolor=inkblue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\e}{\mathrm e}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\M}{\mathcal M}
+\DeclareMathOperator{\den}{den}
+\DeclareMathOperator{\lcm}{lcm}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdftitle={A New Family of Normal Numbers},
+pdfsubject={The Xi family, its Stoneham specialization, and normality of finite rational linear combinations}}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries\color{inkblue} A New Family of Normal Numbers\par}
+\vspace{9pt}
+{\small 10 September 2026\par}
+\end{center}
+
+\begin{abstract}
+We study the numbers \(\xi_{b,c;a}\), obtained by restricting the
+logarithmic series to products of powers of \(a\) and \(c\). For
+integers \(a,b,c\ge2\) with \(\gcd(c,ab)=1\), we prove normality in
+base \(b\). More strongly, fixing \(a,b\) and varying the eligible
+parameter \(c\), every finite rational combination of distinct members
+with coefficients not all zero is normal, even after a rational translation. The
+construction extends Stoneham numbers and includes values of Dibag's
+localized logarithms. The proof follows the denominators of rational
+approximations: one prime detects a contribution that the others cannot
+cancel. Both main theorems have complete Lean formalizations.
+\end{abstract}
+
+\section{Meet the Xi family}
+
+A real number is \emph{normal in base \(b\)} if every word of \(\ell\)
+base-\(b\) digits occurs with limiting frequency \(b^{-\ell}\), counting
+overlapping occurrences. Thus a binary normal number contains each digit
+half the time, each two-digit word a quarter of the time, and so on.
+For numbers outside \([0,1)\), we use the expansion of the fractional part.
+
+The numbers in this paper have a simple analytic definition. For positive
+integers \(a,c\), write
+\[
+ \M(a,c)=\{a^i c^k:i,k\ge0\},
+\]
+with each integer included only once. For an integer \(b\ge2\), define
+\begin{equation}\label{eq:xi}
+ \boxed{\displaystyle
+ \xi_{b,c;a}=\sum_{m\in\M(a,c)}\frac1{m b^m}.}
+\end{equation}
+We call these numbers the \emph{Xi family}. The first index is the
+expansion base; the index after the semicolon is an additional
+multiplicative generator.
+
+The series converges, since it is a subseries of
+\[
+ \sum_{m\ge1}\frac1{m b^m}=-\log(1-1/b).
+\]
+When \(a,c\ge2\) are coprime, every product \(a^ic^k\) has a unique
+representation, so \eqref{eq:xi} becomes the double series
+\begin{equation}\label{eq:double}
+ \xi_{b,c;a}=\sum_{i,k\ge0}\frac1{a^i c^k b^{a^i c^k}}.
+\end{equation}
+Indeed, an equality between two such products would equate a positive
+power of \(a\) with a positive power of \(c\), unless both pairs of
+exponents agree. Coprimality excludes that possibility.
+
+For example, \(\xi_{2,3;2}\) uses the entries of the grid
+\[
+\begin{array}{c|rrrrr}
+ & 1&3&9&27&\cdots\\ \hline
+1&1&3&9&27&\cdots\\
+2&2&6&18&54&\cdots\\
+4&4&12&36&108&\cdots\\
+8&8&24&72&216&\cdots\\
+\vdots&\vdots&\vdots&\vdots&\vdots&
+\end{array}
+\qquad\text{each entry \(m\) contributes \(1/(m2^m)\).}
+\]
+Its value begins \(0.68562264189340237754\ldots\). The rule selects
+terms of a familiar convergent series; it makes no reference to digit
+frequencies.
+
+\begin{theorem}[Normality of the Xi family]\label{thm:normal}
+Let \(a,b,c\ge2\) be integers with \(\gcd(c,ab)=1\). Then
+\(\xi_{b,c;a}\) is normal in base \(b\).
+\end{theorem}
+
+The condition allows \(a\) to share prime factors with the base. It
+covers \(\xi_{2,3;2}\), for instance, and also the composite-generator
+example \(\xi_{2,35;6}\).
+
+The arithmetic property is stronger. Addition can destroy normality:
+if \(x\in(0,1)\) is normal, so is \(1-x\), but their sum is an
+integer. Within the following fixed-parameter Xi family, rational
+combinations behave differently.
+
+\begin{theorem}[Rational combinations]\label{thm:arithmetic}
+Fix integers \(a,b\ge2\). Let \(c_1,\ldots,c_t\ge2\) be distinct
+integers with \(\gcd(c_j,ab)=1\), and let
+\(q_0,\lambda_1,\ldots,\lambda_t\in\Q\). If at least one
+\(\lambda_j\) is nonzero, then
+\begin{equation}\label{eq:main-combination}
+ q_0+\lambda_1\xi_{b,c_1;a}+\cdots+\lambda_t\xi_{b,c_t;a}
+\end{equation}
+is normal in base \(b\).
+\end{theorem}
+
+The parameters may share primes or be powers of one another. In
+particular, the binary-normal examples include
+\[
+ \xi_{2,3;2}-\xi_{2,9;2}
+ \quad\text{and}\quad
+ \xi_{2,3;2}-2\xi_{2,9;2}+\tfrac17\xi_{2,15;2}.
+\]
+The first example removes every term whose exponent of three is even.
+An infinite portion of the series cancels, and the remainder is still
+normal. Accounting for such cancellations is the main work of the proof.
+
+\subsection*{Stoneham numbers and localized logarithms}
+
+The usual Stoneham constant is
+\[
+ \alpha_{b,c}=\sum_{k\ge1}\frac1{c^k b^{c^k}}.
+\]
+Stoneham proved foundational normality results for these series;
+Bailey and Crandall established base-\(b\) normality for every coprime
+pair \(b,c\ge2\) \cite{Stoneham,BaileyCrandall}. Setting the additional
+generator to one in our distinct-index definition gives
+\begin{equation}\label{eq:stoneham}
+ \xi_{b,c;1}=\frac1b+\alpha_{b,c}.
+\end{equation}
+Thus the construction passes from one geometric sequence of exponents
+to a grid of products of powers. Formula~\eqref{eq:stoneham} uses
+\eqref{eq:xi}: substituting \(a=1\) in the double series would repeat
+every term infinitely. The boundary \(a=1\) is the classical Stoneham
+case; our two theorems concern \(a\ge2\).
+
+There is also an older analytic origin. Dibag's localized logarithm
+retains the terms of \(\log(1+z)\) whose exponents have prime factors
+in a chosen set \cite[Definitions 1.1--1.2]{Dibag}. For distinct prime
+generators \(a,c\), our function
+\[
+ F_{a,c}(z)=\sum_{m\in\M(a,c)}\frac{z^m}{m}
+\]
+is precisely \(-L_{\{a,c\}}(-z)\) in Dibag's notation, and
+\(\xi_{b,c;a}=F_{a,c}(1/b)\). Composite generators allow further
+restrictions on the exponents. The results here establish normality
+and rational-combination stability for this family.
+
+Our argument belongs to the arithmetic approach to normal numbers
+developed by Stoneham, Korobov, Kano, Bailey and Crandall, and others.
+Earlier rings of normal numbers provide precedents for arithmetic
+closure \cite{Kano,KanoShiokawa}. We use a rational-orbit estimate of
+Vandehey \cite{Vandehey}; the accompanying Lean proof independently
+establishes the estimates it needs by repeated differencing.
+
+\section{Read the digits through rational approximations}
+
+Multiplication by \(b^n\) moves the digit at position \(n+1\) to the
+front. A standard form of Weyl's criterion says that \(x\) is normal
+in base \(b\) exactly when
+\begin{equation}\label{eq:weyl}
+ \sum_{n<N}\e(hb^n x)=o(N)
+ \quad\text{for every integer \(h\ne0\)},\qquad
+ \e(u)=\exp(2\pi i u).
+\end{equation}
+Indeed, uniform distribution of \(\{b^nx\}\) gives each interval
+\([j/b^\ell,(j+1)/b^\ell)\) its length as frequency. These are exactly
+the intervals encoding digit words \cite{Weyl}.
+
+Here is the analytic input. For fixed \(b\), a finite set \(P\) of
+primes not dividing \(b\), and any \(\varepsilon>0\), there are
+constants \(C,\delta>0\) such that
+\begin{equation}\label{eq:orbit}
+ \left|\sum_{r=0}^{L-1}\e(Ab^r/q)\right|
+ \le C L q^{-\delta}(1+\log q),
+ \qquad L\ge q^\varepsilon,
+\end{equation}
+whenever \(A/q\) is reduced and every prime factor of \(q\) lies in
+\(P\). This is Vandehey's Corollary~1.2 \cite{Vandehey}, with the
+starting index shifted. The estimate says that a sufficiently long
+piece of a rational radix orbit becomes equidistributed as its
+denominator grows. All logarithms below are natural.
+
+We will use the following elementary consequence. It is stated for
+weighted series because subtracting Xi numbers naturally introduces
+weights.
+
+\begin{proposition}[A denominator test]\label{prop:transfer}
+Fix \(a,b\ge2\) and integers \(d_1,\ldots,d_g\ge2\) coprime to
+\(ab\). Let each \(w_j(k)\) be a bounded rational sequence, with a
+common denominator for all its values. Put
+\begin{align}
+ x&=q_0+\sum_{j=1}^g\sum_{i,k\ge0}
+       \frac{w_j(k)}{a^i d_j^k b^{a^i d_j^k}},\label{eq:weighted-x}\\
+ T_n&=q_0+\sum_{j=1}^g\sum_{a^i d_j^k\le n}
+       \frac{w_j(k)}{a^i d_j^k b^{a^i d_j^k}},
+       \qquad q_0\in\Q.\label{eq:weighted-truncation}
+\end{align}
+Suppose that, for some prime \(p\nmid b\) and some \(\eta>0\),
+the reduced denominator of \(T_n\) contains a factor at least
+\(n^\eta\) that is a power of \(p\), except at a set of positions
+of density zero. Then \(x\) is normal in base \(b\).
+\end{proposition}
+
+A set has \emph{density zero} if its intersection with
+\(\{1,\ldots,N\}\) has \(o(N)\) elements. Thus occasional denominator
+cancellation is allowed; it must occupy a vanishing fraction of digit
+positions.
+
+\begin{proof}
+Set \(R_n=b^nT_n\). Boundedness of the weights and uniqueness of the
+products within each group give
+\begin{equation}\label{eq:tail}
+ |b^n x-R_n|
+ \ll \sum_{m>n}\frac{b^{n-m}}m
+ \le\frac1{(b-1)(n+1)}.
+\end{equation}
+Here \(F\ll G\) means \(|F|\le C_0G\) for a constant depending only
+on the fixed data. All implied constants in this proof have this
+meaning, with additional dependence on a fixed Fourier frequency allowed.
+
+Let \(D\) clear the coefficient denominators, including that of \(q_0\).
+Every denominator of \(R_n\) divides
+\begin{equation}\label{eq:den-upper}
+ D a^{\lfloor\log_a n\rfloor}
+       \prod_{j=1}^g d_j^{\lfloor\log_{d_j}n\rfloor}
+ \le D n^{g+1}.
+\end{equation}
+There are only \(O((\log N)^2)\) insertion positions
+\(a^i d_j^k\le2N\). Between successive insertions,
+\(R_{n+r}=b^rR_n\) exactly.
+
+Some factors of \(a\) or \(D\) may divide \(b\). On a dyadic
+interval \([N,2N)\), remove each insertion position and the following
+\(C_1\log(2N)\) positions, including any such intervals crossing \(N\).
+For sufficiently large fixed \(C_1\), every denominator prime dividing
+\(b\) has then been cleared by multiplication by \(b\). To see this
+term by term, its possible denominator exponent at a prime dividing
+\(b\) is \(O(\log N)\), whereas each new radix shift supplies a
+fixed positive power of that prime. The fixed rational term clears too.
+The removed positions number \(O((\log N)^3)\).
+
+The remaining positions form \(O((\log N)^2)\) intervals on each of
+which the reduced denominator is constant, coprime to \(b\), supported
+on a fixed finite set of primes, and at most \(DN^{g+1}\) up to a
+fixed factor. Our hypothesis removes another \(o(N)\) positions:
+discard the intervals whose \(p\)-part is smaller than \(N^\eta\).
+Each position in such an interval is exceptional, because \(p\nmid b\)
+and the \(p\)-part is constant there.
+
+Fix \(h\ne0\). Multiplication by \(h\) reduces a denominator by at
+most \(|h|\). Thus on each retained interval, the denominator \(q\)
+of \(hR_n\) satisfies
+\[
+ q\gg_h N^\eta,\qquad q\ll N^{g+1}.
+\]
+Discard intervals shorter than \(N^{1/2}\); their total length is
+\(O(N^{1/2}(\log N)^2)=o(N)\). Choose
+\(0<\varepsilon<1/(2(g+1))\). Every remaining interval has length
+at least \(q^\varepsilon\) for large \(N\), so \eqref{eq:orbit}
+bounds its Fourier sum by its length times \(O_h(N^{-\eta\delta}\log N)\).
+Adding the intervals gives
+\[
+ \sum_{N\le n<M}\e(hR_n)=o(N),\qquad N<M\le2N,
+\]
+uniformly in \(M\); a final truncated interval is handled by the same
+short-interval rule. By \eqref{eq:tail} and
+\(|\e(u)-\e(v)|\le2\pi|u-v|\), replacing \(R_n\) by \(b^nx\)
+costs only \(O_h(1)\) on this scale. Summing dyadic intervals proves
+\eqref{eq:weyl} through every prefix length.
+\end{proof}
+
+The analytic task is now complete. To prove normality, it remains to
+find one prime whose denominator powers survive most of the time.
+
+\section{Why a denominator survives}
+
+For a prime \(p\), let \(v_p(y)\) be its exponent in a nonzero
+rational number \(y\), and put \(v_p(0)=+\infty\). A negative
+valuation records a denominator: for example, \(v_3(2/27)=-3\).
+We will repeatedly use the elementary rule
+\begin{equation}\label{eq:valuation-rule}
+ v_p(u+v)=\min(v_p(u),v_p(v))
+ \quad\text{if }v_p(u)\ne v_p(v).
+\end{equation}
+More generally, a finite sum with a unique term of smallest valuation
+has that same valuation.
+
+Fix \(a,b,d\ge2\) with \(\gcd(d,ab)=1\), a nonzero periodic
+rational sequence \(w(k)\), and a prime \(p\mid d\). Write
+\begin{equation}\label{eq:block}
+ S_n=\sum_{a^i d^k\le n}\frac{w(k)}{a^i d^k b^{a^i d^k}},
+ \qquad D_p(n)=\max\{0,-v_p(S_n)\},
+\end{equation}
+where \(D_p(n)=0\) when \(S_n=0\). Thus \(D_p(n)\) is the exponent
+of \(p\) in the reduced denominator of the whole truncation.
+
+\begin{lemma}[The denominator slope]\label{lem:slope}
+With the preceding notation,
+\begin{equation}\label{eq:slope}
+ \frac{D_p(n)}{\log n}\longrightarrow
+ \sigma_p(d):=\frac{v_p(d)}{\log d}
+ \quad\text{in density}.
+\end{equation}
+That is, for every positive tolerance, the positions at which the two
+sides differ by more than that tolerance have density zero.
+\end{lemma}
+
+The slope has a simple meaning. Among the terms already inserted by
+position \(n\), the largest possible exponent of \(d\) is about
+\(\log_d n\). It contributes about
+\(v_p(d)\log_d n\) powers of \(p\) to the denominator. The lemma
+says that cancellation changes this leading size only rarely.
+
+We first record the spacing fact that makes the argument work.
+
+\begin{lemma}[Small relative gaps]\label{lem:gaps}
+If \(u,v\ge2\) have no equal positive powers, then for every
+\(\varepsilon>0\), every sufficiently large interval
+\((x,(1+\varepsilon)x]\) contains a number \(u^i v^k\) with
+\(i,k\ge0\).
+\end{lemma}
+
+\begin{proof}
+The ratio \(\log u/\log v\) is irrational. Its integer multiples
+are dense modulo one. Choose finitely many nonnegative multiples whose
+fractional parts have gaps smaller than
+\(\log(1+\varepsilon)/\log v\). For any sufficiently large
+\(\log x\), one of the corresponding values \(i\log u\), followed
+by a nonnegative multiple of \(\log v\), lies in
+\((\log x,\log x+\log(1+\varepsilon)]\). Exponentiate.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:slope}]
+Put \(v=v_p(d)\) and \(\sigma=v/\log d\). Every nonzero summand
+at position \(a^id^k\) has valuation
+\begin{equation}\label{eq:term-valuation}
+ v_p(w(k))-kv,
+\end{equation}
+since \(p\nmid ab\). There are only finitely many nonzero weights,
+so \(k\le\log_d n\) immediately gives
+\[
+ D_p(n)\le\sigma\log n+O(1).
+\]
+The lower bound requires three observations.
+
+\paragraph{Equal valuations cannot occur too close together.}
+If two expressions in \eqref{eq:term-valuation} agree, the difference
+of their \(k\)-coordinates belongs to a fixed finite set. The ratio
+of the two insertion positions is therefore \(a^r d^s\), where
+\(r\in\mathbb Z\) and \(s\) lies in that finite set. For each
+fixed \(s\), the logarithms \(r\log a+s\log d\) form a discrete
+set. After excluding zero, their distances from zero have a positive
+lower bound, uniformly over these finitely many \(s\).
+
+Choose \(\Lambda>1\) smaller than the resulting separation ratio.
+Distinct nonzero terms inserted in any interval \([X,\Lambda X]\)
+then have distinct valuations. Any nonempty sum of such terms has the
+valuation of its unique smallest-valuation term.
+
+\paragraph{Deep denominator terms occur frequently on a relative scale.}
+Fix \(0<\theta<\sigma\). Let \(L\ge1\) be a period of \(w\),
+and choose \(k_0\) with \(w(k_0)\ne0\). At scale \(N\), choose
+the least nonnegative \(k_N\equiv k_0\pmod L\) for which
+\[
+ k_Nv-v_p(w(k_0))>\theta\log N.
+\]
+Then
+\begin{equation}\label{eq:threshold}
+ d^{k_N}\asymp N^{\theta/\sigma}.
+\end{equation}
+Every position in the set
+\begin{equation}\label{eq:deep-set}
+ d^{k_N}\M(a,d^L)
+\end{equation}
+carries a nonzero term of valuation smaller than
+\(-\theta\log N\). Here \(F\asymp G\) means that their ratio is
+bounded above and below by positive fixed constants.
+
+The generators \(a,d^L\) are coprime and hence have no equal positive
+powers. By Lemma~\ref{lem:gaps}, the set in \eqref{eq:deep-set}
+meets every interval \((x,(1+\varepsilon)x]\), uniformly for
+\(N\le x\le2N\), once \(N\) is sufficiently large. Indeed,
+after division by \(d^{k_N}\), the starting points are at least a
+constant times \(N^{1-\theta/\sigma}\), which tends to infinity.
+
+\paragraph{Extensive cancellation is confined to short intervals.}
+Call a position \(n\in[N,2N]\) bad if
+\(D_p(n)\le\theta\log N\), equivalently
+\(v_p(S_n)\ge-\theta\log N\). Take two bad positions \(x<y\)
+within a block of multiplicative ratio at most \(\Lambda\).
+Their difference \(S_y-S_x\) cannot contain an insertion from
+\eqref{eq:deep-set}: the inserted terms have distinct valuations,
+so such an insertion would force
+\(v_p(S_y-S_x)<-\theta\log N\), contradicting the bound at both
+endpoints.
+
+But a deep insertion occurs before \((1+\varepsilon)x\).
+Consequently two bad positions in this block are separated by less
+than \(\varepsilon x\le2\varepsilon N\). All bad positions in the
+block therefore lie in an interval of length at most
+\(2\varepsilon N\). Cover \([N,2N]\) by a fixed finite number of
+such blocks. Since \(\varepsilon\) is arbitrary,
+\begin{equation}\label{eq:bad-count}
+ \#\{n\in[N,2N]:D_p(n)\le\theta\log N\}=o(N).
+\end{equation}
+This holds for every \(\theta<\sigma\). To replace \(\log N\)
+by \(\log n\), first increase \(\theta\) slightly while keeping
+it below \(\sigma\); on this scale the two logarithms differ by at
+most \(\log2\). Together with the upper bound, and then a dyadic
+summation, this proves \eqref{eq:slope}.
+\end{proof}
+
+\section{Normality of each Xi number}
+
+We can now prove Theorem~\ref{thm:normal}. Take \(d=c\) and
+\(w(k)=1\) in Lemma~\ref{lem:slope}, and choose any prime
+\(p\mid c\). The hypothesis \(\gcd(c,ab)=1\) gives \(p\nmid ab\).
+Outside a set of density zero, the \(p\)-part of the denominator
+of the truncation is at least
+\[
+ p^{\frac12\sigma_p(c)\log n}
+   =n^{\frac12\sigma_p(c)\log p}.
+\]
+Proposition~\ref{prop:transfer} applies with one group and \(q_0=0\),
+proving normality.
+
+The mechanism can be read directly from the series. Between insertions,
+the shifted truncations follow rational radix orbits. Their denominators
+become large at almost every position, and the orbit estimate turns
+that growth into the correct frequency of every digit word.
+
+\section{Why rational combinations remain normal}
+
+We turn to Theorem~\ref{thm:arithmetic}. Discard zero coefficients.
+The key is to group parameters that are powers of the same integer
+\emph{before} comparing their denominators.
+
+\subsection*{First collect the exact overlaps}
+
+Every integer \(c\ge2\) has a unique expression
+\(c=d^r\), where \(r\ge1\) and \(d\) is not a proper integer
+power. In its prime factorization, \(r\) is the greatest common
+divisor of the exponents. Two integers have equal positive powers
+exactly when their corresponding \(d\)'s agree.
+
+Group together all parameters with the same \(d\). Their contribution
+to \eqref{eq:main-combination} is
+\begin{equation}\label{eq:grouping}
+ Y_d=\sum_{i,k\ge0}\frac{w_d(k)}{a^i d^k b^{a^i d^k}},
+ \qquad
+ w_d(k)=\sum_{r\in E_d}\lambda_{d,r}\,\mathbf1_{r\mid k}.
+\end{equation}
+Here \(E_d\) is the finite set of powers present in the group, and
+\(r\mid0\) as usual. The sequence \(w_d\) is periodic, with period
+dividing \(\lcm(E_d)\).
+
+It is also nonzero. Choose the smallest \(r\in E_d\) with nonzero
+coefficient and evaluate at \(k=r\). Any other contributing exponent
+must be a proper divisor of \(r\), whose coefficient is zero by the
+choice of \(r\). Hence \(w_d(r)=\lambda_{d,r}\ne0\).
+
+For instance, \(\xi_{b,d;a}-\xi_{b,d^2;a}\) has weight one at odd
+\(k\) and zero at even \(k\). Grouping makes this exact cancellation
+visible, and Lemma~\ref{lem:slope} applies to the surviving periodic
+weight.
+
+\subsection*{Then one prime separates the groups}
+
+Let \(S_{d,n}\) be the truncation of \(Y_d\) at insertion position
+\(n\). Choose a prime \(p\) dividing at least one active \(d\).
+It divides neither \(a\) nor \(b\). Associate to each group the slope
+\[
+ \sigma_d=\frac{v_p(d)}{\log d},
+\]
+which is zero if \(p\nmid d\). Distinct groups cannot have equal
+positive slopes: equality would give
+\[
+ d_1^{v_p(d_2)}=d_2^{v_p(d_1)},
+\]
+forcing the same primitive integer in both groups.
+
+There is therefore a unique group \(d_*\) of largest positive slope.
+Choose \(0<\theta<\sigma_{d_*}\) with
+\(\sigma_d<\theta\) for every other group.
+By Lemma~\ref{lem:slope}, outside a set of density zero,
+\[
+ v_p(S_{d_*,n})<-\theta\log n.
+\]
+Every other group satisfies the unconditional bound
+\[
+ v_p(S_{d,n})\ge-\sigma_d\log n-O(1).
+\]
+When \(p\nmid d\), this simply says that its \(p\)-denominator is
+bounded: only the finitely many rational weights can contribute such a
+factor. The rational constant \(q_0\) has a fixed valuation as well.
+For all sufficiently large nonexceptional \(n\), the \(d_*\) group
+has strictly smaller valuation than every other contribution.
+Rule~\eqref{eq:valuation-rule} gives
+\[
+ v_p\!\left(q_0+\sum_d S_{d,n}\right)
+       =v_p(S_{d_*,n})<-\theta\log n.
+\]
+Thus the \(p\)-part of the denominator of the complete truncation
+exceeds \(n^{\theta\log p}\) at a density-one set of positions.
+Proposition~\ref{prop:transfer} proves that
+\(q_0+\sum_dY_d\) is normal in base \(b\), completing the proof
+of Theorem~\ref{thm:arithmetic}.\hfill\(\square\)
+
+\Needspace{8\baselineskip}
+\begin{corollary}\label{cor:independence}
+For fixed \(a,b\ge2\), the number one and all the values
+\(\xi_{b,c;a}\), with \(c\ge2\) and \(\gcd(c,ab)=1\), are
+linearly independent over \(\Q\). The Xi values span an
+infinite-dimensional rational vector space whose every nonzero element
+is normal in base \(b\).
+\end{corollary}
+
+\begin{proof}
+A nontrivial rational relation involving a Xi value would make the
+normal number in Theorem~\ref{thm:arithmetic} equal to zero. This is
+impossible: rational numbers have eventually periodic expansions and
+are not normal. There are infinitely many eligible parameters \(c\).
+\end{proof}
+
+The arithmetic theorem fixes both \(a\) and \(b\). Within that
+family it allows every finite rational combination, including negative
+coefficients and overlapping parameter powers. Its proof identifies
+what makes this possible: periodic cancellations preserve a definite
+denominator growth rate, and distinct groups have different rates at
+a suitable prime.
+
+\section*{The accompanying Lean proof}
+
+Theorems~\ref{thm:normal} and~\ref{thm:arithmetic} are formalized
+with their stated hypotheses. In the accompanying source package,
+\texttt{XiFamilyChallenge.lean} defines the distinct-index series and
+normality through overlapping word frequencies. It imports only
+mathlib, independently of the proof development.
+\texttt{XiFamilySolution.lean} proves both statements, and
+\texttt{XiFamilyStatement.lean} establishes correspondence with the
+definitions used internally.
+
+The formal proof follows the same denominator argument. Its analytic
+part proves sufficient rational-orbit estimates by repeated differencing,
+so it does not assume Vandehey's theorem as an axiom. The complete
+source build and the endpoint axiom checks passed with Lean
+4.34.0-rc2 and pinned mathlib dependencies. There are no unfinished
+proofs or added axioms. Convergence, the double-series identity, and
+the Stoneham specialization are included in the development.
+
+\begin{thebibliography}{9}
+\small
+\bibitem{Stoneham}
+R.~G. Stoneham, On absolute \((j,\varepsilon)\)-normality in the rational
+fractions with applications to normal numbers,
+\emph{Acta Arithmetica} \textbf{22} (1973), 277--286.
+\href{https://doi.org/10.4064/aa-22-3-277-286}{doi:10.4064/aa-22-3-277-286}.
+
+\bibitem{BaileyCrandall}
+D.~H. Bailey and R.~E. Crandall, Random generators and normal numbers,
+\emph{Experimental Mathematics} \textbf{11} (2002), 527--546.
+\href{https://www.davidhbailey.com/dhbpapers/bcnormal-em.pdf}{Author's copy}.
+
+\bibitem{Dibag}
+I. Dibag, Generalization of the von Staudt--Clausen theorem,
+\emph{Journal of Algebra} \textbf{125} (1989), 519--523.
+\href{https://doi.org/10.1016/0021-8693(89)90180-4}{doi:10.1016/0021-8693(89)90180-4}.
+
+\bibitem{Kano}
+H. Kano, General constructions of normal numbers of Korobov type,
+\emph{Osaka Journal of Mathematics} \textbf{30} (1993), 909--919.
+\href{https://doi.org/10.18910/10356}{doi:10.18910/10356}.
+
+\bibitem{KanoShiokawa}
+H. Kano and I. Shiokawa, Rings of normal and nonnormal numbers,
+\emph{Israel Journal of Mathematics} \textbf{84} (1993), 403--416.
+\href{https://www.math.keio.ac.jp/wp-content/uploads/2022/03/91006.pdf}{Institutional preprint}.
+
+\bibitem{Vandehey}
+J. Vandehey, Differencing methods for Korobov-type exponential sums,
+\emph{Journal d'Analyse Math\'ematique} \textbf{138} (2019), 405--439.
+\href{https://doi.org/10.1007/s11854-019-0038-2}{doi:10.1007/s11854-019-0038-2}.
+\href{https://arxiv.org/abs/1606.07911}{arXiv:1606.07911}.
+
+\bibitem{Weyl}
+H. Weyl, \"Uber die Gleichverteilung von Zahlen mod.\ Eins,
+\emph{Mathematische Annalen} \textbf{77} (1916), 313--352.
+\href{https://doi.org/10.1007/BF01475864}{doi:10.1007/BF01475864}.
+\end{thebibliography}
+\end{document}

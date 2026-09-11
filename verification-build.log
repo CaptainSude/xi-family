@@ -1,0 +1,460 @@
+✔ [3789/3808] Built XiFamilyChallenge (16s)
+✔ [3790/3808] Built XiNormality.Imports (21s)
+⚠ [3791/3808] Built StonehamNormality.DependentSumValuation (14s)
+warning: StonehamNormality/DependentSumValuation.lean:135:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3792/3808] Built XiGap (23s)
+warning: XiGap.lean:133:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: XiGap.lean:133:58: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: XiGap.lean:133:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3793/3808] Built StonehamNormality.StonehamSeries (24s)
+warning: StonehamNormality/StonehamSeries.lean:159:4: Try `simp at hm` instead of `simpa using hm`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3794/3808] Built XiNormality.Weyl (23s)
+✔ [3795/3808] Built XiNormality.Definitions (22s)
+✔ [3796/3808] Built XiValuationEscape (13s)
+✔ [3797/3808] Built XiGapSeparation (20s)
+✔ [3798/3808] Built XiNormality.Cylinder (21s)
+✔ [3799/3814] Built XiLocalDensity (22s)
+✔ [3800/3816] Built StonehamNormality.GeneralRadix (22s)
+✔ [3801/3816] Built XiNormality.Orthogonality (21s)
+✔ [3802/3816] Built XiNormality.Arithmetic (22s)
+⚠ [3803/3816] Built StonehamNormality.GeneralSeries (22s)
+warning: StonehamNormality/GeneralSeries.lean:168:4: Try `simp at hm` instead of `simpa using hm`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3804/3817] Built StonehamNormality.Differencing (15s)
+⚠ [3805/3819] Built XiNormality.Exponential (23s)
+warning: XiNormality/Exponential.lean:167:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3806/3819] Built XiFamilyDefinition (21s)
+⚠ [3807/3819] Built StonehamNormality.GeneralKernel (15s)
+warning: StonehamNormality/GeneralKernel.lean:54:4: Unused tactic linter: `change π (x ^ (j : ℕ)) = 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: StonehamNormality/GeneralKernel.lean:81:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralKernel.lean:82:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3809/3821] Built StonehamNormality.PrimeFive (21s)
+✔ [3810/3823] Built XiFamilyStatement (21s)
+✔ [3811/3823] Built XiFamilySeries (22s)
+⚠ [3812/3823] Built StonehamNormality.GeneralOrder (16s)
+warning: StonehamNormality/GeneralOrder.lean:50:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralOrder.lean:83:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralOrder.lean:124:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralOrder.lean:125:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralOrder.lean:175:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3813/3823] Built StonehamNormality.CorrelationArithmetic (22s)
+✔ [3814/3823] Built StonehamNormality.MixedModulus (24s)
+✔ [3815/3828] Built StonehamNormality.SmoothDivisor (14s)
+⚠ [3816/3830] Built XiFamilySupport (22s)
+warning: XiFamilySupport.lean:38:55: This simp argument is unused:
+  Nat.lt_succ_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3817/3830] Built StonehamNormality.GeneralCorrelation (21s)
+⚠ [3818/3830] Built StonehamNormality.GeneralOrbit (20s)
+warning: StonehamNormality/GeneralOrbit.lean:94:9: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3819/3830] Built XiFamilyRational (19s)
+warning: XiFamilyRational.lean:122:12: `Finset.prod_le_prod'` has been deprecated: Use `Finset.prod_le_prod` instead
+✔ [3820/3833] Built StonehamNormality.GeneralSupportedOrbit (18s)
+✔ [3821/3833] Built StonehamNormality.GeneralOrbitScale (21s)
+✔ [3822/3833] Built XiBlockDepth (28s)
+✔ [3823/3833] Built StonehamNormality.GeneralSupportConstants (20s)
+⚠ [3824/3838] Built XiNormality.Blocks (22s)
+warning: XiNormality/Blocks.lean:62:10: Try `simp at hns` instead of `simpa using hns`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3825/3838] Built StonehamNormality.GeneralModulusScale (23s)
+warning: StonehamNormality/GeneralModulusScale.lean:123:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralModulusScale.lean:119:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3826/3838] Built StonehamNormality.NormalityTransfer (22s)
+✔ [3827/3838] Built StonehamNormality.CharacterPhase (21s)
+⚠ [3828/3838] Built StonehamNormality.GeneralGlobalOrbit (22s)
+warning: StonehamNormality/GeneralGlobalOrbit.lean:39:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3829/3838] Built StonehamNormality.XiAnalyticAmplification (23s)
+warning: StonehamNormality/XiAnalyticAmplification.lean:107:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3830/3838] Built StonehamNormality.GeneralRadixTransfer (20s)
+✔ [3831/3843] Built StonehamNormality.GeneralCharacterPhase (19s)
+⚠ [3832/3843] Built StonehamNormality.XiAnalyticIteration (20s)
+warning: StonehamNormality/XiAnalyticIteration.lean:75:47: This simp argument is unused:
+  Nat.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pow_succ, Nat.mul_comm, Nat.mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StonehamNormality/XiAnalyticIteration.lean:75:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticIteration.lean:109:24: This simp argument is unused:
+  Nat.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pow_succ, Nat.mul_comm, Nat.mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StonehamNormality/XiAnalyticIteration.lean:108:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3833/3843] Built StonehamNormality.StonehamArithmetic (22s)
+warning: StonehamNormality/StonehamArithmetic.lean:79:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/StonehamArithmetic.lean:189:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3834/3843] Built StonehamNormality.StonehamTransfer (21s)
+✔ [3835/3843] Built StonehamNormality.XiAnalyticDyadic (22s)
+⚠ [3836/3843] Built StonehamNormality.GeneralArithmetic (21s)
+warning: StonehamNormality/GeneralArithmetic.lean:53:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralArithmetic.lean:107:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralArithmetic.lean:126:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralArithmetic.lean:135:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralArithmetic.lean:144:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/GeneralArithmetic.lean:157:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3837/3843] Built StonehamNormality.XiAnalyticGlobal (29s)
+warning: StonehamNormality/XiAnalyticGlobal.lean:91:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:91:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:91:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:93:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:93:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:93:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:96:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/XiAnalyticGlobal.lean:96:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3838/3843] Built StonehamNormality.GeneralSeriesBridge (20s)
+⚠ [3839/3849] Built StonehamNormality.XiAnalyticTransfer (21s)
+warning: StonehamNormality/XiAnalyticTransfer.lean:73:10: Try `simp at hns` instead of `simpa using hns`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StonehamNormality/XiAnalyticTransfer.lean:84:5: Variable name `haz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _haz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3840/3851] Built StonehamNormality.GeneralRadixSupport (24s)
+✔ [3842/3877] Built StonehamNormality.PeriodicSums (13s)
+⚠ [3843/3877] Built StonehamNormality.XiAnalyticDenominatorTransfer (23s)
+warning: StonehamNormality/XiAnalyticDenominatorTransfer.lean:40:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3844/3877] Built StonehamNormality.DependentSumPeriodic (14s)
+warning: StonehamNormality/DependentSumPeriodic.lean:49:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3845/3877] Built StonehamNormality.IndependentSum (23s)
+warning: StonehamNormality/IndependentSum.lean:32:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/IndependentSum.lean:93:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/IndependentSum.lean:122:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3846/3877] Built StonehamNormality.GeneralDenominator (21s)
+warning: StonehamNormality/GeneralDenominator.lean:19:32: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [3847/3877] Built XiFamilyClearing (21s)
+⚠ [3848/3877] Built XiPeriodicWeights (21s)
+warning: XiPeriodicWeights.lean:35:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: XiPeriodicWeights.lean:80:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: XiPeriodicWeights.lean:112:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3849/3877] Built XiWeightedBlock (21s)
+warning: XiWeightedBlock.lean:23:27: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+✔ [3850/3877] Built XiGapWeightedDepth (27s)
+✔ [3851/3877] Built StonehamNormality.XiAnalyticDensity (24s)
+✔ [3852/3877] Built StonehamNormality.DependentSumTwo (14s)
+✔ [3853/3877] Built XiClearingBuffers (24s)
+✔ [3854/3877] Built XiParameterGrouping (20s)
+✔ [3855/3877] Built XiWeightedDepth (22s)
+⚠ [3856/3877] Built XiFamilyScaleDensity (22s)
+warning: XiFamilyScaleDensity.lean:35:34: This simp argument is unused:
+  Nat.cast_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_def, pow_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3857/3877] Built StonehamNormality.DependentSumDenominator (11s)
+warning: StonehamNormality/DependentSumDenominator.lean:21:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3858/3877] Built StonehamNormality.DependentSumBridge (19s)
+warning: StonehamNormality/DependentSumBridge.lean:12:44: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StonehamNormality/DependentSumBridge.lean:83:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StonehamNormality/DependentSumBridge.lean:140:37: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3859/3877] Built XiPrimitiveParameters (23s)
+warning: XiPrimitiveParameters.lean:60:47: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+⚠ [3860/3877] Built StonehamNormality.DependentSumWindows (24s)
+warning: StonehamNormality/DependentSumWindows.lean:52:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3861/3877] Built XiGroupedSeries (20s)
+✔ [3862/3877] Built XiSlopeDominance (23s)
+⚠ [3863/3877] Built StonehamNormality.AllPairDenominator (20s)
+warning: StonehamNormality/AllPairDenominator.lean:48:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+⚠ [3864/3877] Built XiDominantBlock (20s)
+warning: XiDominantBlock.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3865/3877] Built XiGroupedDepth (23s)
+✔ [3866/3877] Built StonehamNormality.GeneralDenominatorScale (22s)
+⚠ [3867/3877] Built StonehamNormality.TwoSumMain (19s)
+warning: StonehamNormality/TwoSumMain.lean:33:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: StonehamNormality/TwoSumMain.lean:71:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3868/3877] Built XiCombinationDepth (21s)
+⚠ [3869/3877] Built XiArithmeticDepth (22s)
+warning: XiArithmeticDepth.lean:23:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3870/3877] Built XiFamilyNormalityDensity (24s)
+⚠ [3871/3877] Built XiFamilyNormalityFromDepth (19s)
+warning: XiFamilyNormalityFromDepth.lean:41:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3872/3877] Built XiFiniteCombinationTransfer (21s)
+⚠ [3873/3877] Built XiFamilyNormality (22s)
+warning: XiFamilyNormality.lean:70:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3874/3877] Built XiArithmeticNormality (16s)
+warning: XiArithmeticNormality.lean:23:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3875/3877] Built XiFamilySolution (16s)
+✔ [3876/3877] Built XiFamilyAxiomCheck (17s)
+Build completed successfully (3877 jobs).
+
+Explicit endpoint audit:
+lake --no-cache env lean XiFamilyAxiomCheck.lean
+
+Exit code: 0. All eleven guarded axiom checks passed.
