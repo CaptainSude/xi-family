@@ -1,0 +1,38 @@
+name: Verify Lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - name: Check out the submitted sources
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: Check the source and paper fingerprints
+        run: sha256sum --check SHA256SUMS
+      - name: Install the pinned Lean toolchain
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1.6.0
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "false"
+      - name: Retrieve the pinned mathlib dependency cache
+        run: lake --no-cache exe cache get
+      - name: Build all proof sources and both formal statements
+        run: lake --no-cache build
+      - name: Enforce the axiom list for all eleven endpoints
+        run: lake --no-cache env lean XiFamilyAxiomCheck.lea
